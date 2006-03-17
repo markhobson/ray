@@ -45,36 +45,36 @@ public class ScenePanel extends JComponent
 	@Override
     protected void paintComponent(Graphics graphics)
     {
-    	if (image == null)
-    		createImage();
-    	
-    	graphics.drawImage(image, 0, 0, this);
-    	
-    	graphics.setColor(Color.WHITE);
-    	graphics.drawString(text, 0, 12);
-    }
+		if (image == null)
+			createImage();
+
+		graphics.drawImage(image, 0, 0, this);
+
+		graphics.setColor(Color.WHITE);
+		graphics.drawString(text, 0, 12);
+	}
     
 	@Override
     public void invalidate()
 	{
-    	super.invalidate();
+		super.invalidate();
 		image = null;
 	}
     
     private void createImage()
     {
-    	if (size == null)
-    	{
-       		size = getSize();
-    		pixels = new int[size.width * size.height];
-    		imageSource = new MemoryImageSource(size.width, size.height, pixels, 0, size.width);
-    	}
+		if (size == null)
+		{
+			size = getSize();
+			pixels = new int[size.width * size.height];
+			imageSource = new MemoryImageSource(size.width, size.height, pixels, 0, size.width);
+		}
 
-    	long time = System.nanoTime();
-    	tracer.trace(pixels, size.width, size.height);
-    	time = System.nanoTime() - time;
-    	text = (time == 0) ? "? fps" : (1000000000 / time) + " fps";
-    	
-    	image = createImage(imageSource);
-    }
+		long time = System.nanoTime();
+		tracer.trace(pixels, size.width, size.height);
+		time = System.nanoTime() - time;
+		text = (time == 0) ? "? fps" : (1000000000 / time) + " fps";
+
+		image = createImage(imageSource);
+	}
 }

@@ -9,9 +9,24 @@
 	<groupId>name.hobson.mark</groupId>
 	<artifactId>ray</artifactId>
 	<version>0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	
 	<name>Ray</name>
 	<description>Simple ray-tracing demo.</description>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>name.hobson.mark.ray.Ray</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 	
 </project>
