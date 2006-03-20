@@ -43,8 +43,8 @@ public class ScenePanel extends JComponent
 	}
 	
 	@Override
-    protected void paintComponent(Graphics graphics)
-    {
+	protected void paintComponent(Graphics graphics)
+	{
 		if (image == null)
 			createImage();
 
@@ -53,16 +53,16 @@ public class ScenePanel extends JComponent
 		graphics.setColor(Color.WHITE);
 		graphics.drawString(text, 0, 12);
 	}
-    
+	
 	@Override
-    public void invalidate()
+	public void invalidate()
 	{
 		super.invalidate();
 		image = null;
 	}
-    
-    private void createImage()
-    {
+	
+	private void createImage()
+	{
 		if (size == null)
 		{
 			size = getSize();
