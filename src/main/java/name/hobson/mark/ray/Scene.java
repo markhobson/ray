@@ -5,6 +5,7 @@
  */
 package name.hobson.mark.ray;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,21 +17,33 @@ import java.util.List;
  */
 public class Scene
 {
-	private List<SceneObject> objects;
+	private Color ambient;
+	private List<Traceable> objects;
 	private List<Light> lights;
 	
 	public Scene()
 	{
-		objects = new ArrayList<SceneObject>();
+		this(Color.BLACK);
+	}
+	
+	public Scene(Color ambient)
+	{
+		this.ambient = ambient;
+		objects = new ArrayList<Traceable>();
 		lights = new ArrayList<Light>();
 	}
 	
-	public void add(SceneObject object)
+	public Color getAmbient()
+	{
+		return ambient;
+	}
+	
+	public void add(Traceable object)
 	{
 		objects.add(object);
 	}
 	
-	public void remove(SceneObject object)
+	public void remove(Traceable object)
 	{
 		objects.remove(object);
 	}
@@ -45,7 +58,7 @@ public class Scene
 		lights.remove(light);
 	}
 	
-	public SceneObject getObject(int index)
+	public Traceable getObject(int index)
 	{
 		return objects.get(index);
 	}
@@ -55,9 +68,9 @@ public class Scene
 		return objects.size();
 	}
 	
-	public SceneObject[] getObjects()
+	public Traceable[] getObjects()
 	{
-		return objects.toArray(new SceneObject[objects.size()]);
+		return objects.toArray(new Traceable[objects.size()]);
 	}
 	
 	public Light getLight(int index)

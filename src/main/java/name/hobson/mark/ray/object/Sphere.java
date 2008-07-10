@@ -3,9 +3,10 @@
  *
  * (c) 2005 Mark Hobson.  All rights reserved.
  */
-package name.hobson.mark.ray;
+package name.hobson.mark.ray.object;
 
-import java.awt.Color;
+import name.hobson.mark.ray.Material;
+import name.hobson.mark.ray.Vector;
 
 /**
  * 
@@ -13,33 +14,19 @@ import java.awt.Color;
  * @author	Mark Hobson
  * @version	$Id$
  */
-public class Sphere implements SceneObject
+public class Sphere extends AbstractObject
 {
-	private Vector p0;
 	private double r;
-	private Color color;
-	
 	private double rsq;
 	private Vector q;
 
-	public Sphere(double x0, double y0, double z0, double r, Color color)
+	public Sphere(Vector p0, double r, Material material)
 	{
-		this(new Vector(x0, y0, z0), r, color);
-	}
-	
-	public Sphere(Vector p0, double r, Color color)
-	{
-		this.p0 = p0;
+		super(p0, material);
 		this.r = r;
-		this.color = color;
 		
 		rsq = r*r;
 		q = new Vector();
-	}
-	
-	public Vector getOrigin()
-	{
-		return p0;
 	}
 	
 	public double getRadius()
@@ -47,12 +34,10 @@ public class Sphere implements SceneObject
 		return r;
 	}
 	
-	public Color getColor()
-	{
-		return color;
-	}
-	
-	public boolean intersects(Vector u, Vector v, Vector p)
+	/*
+	 * @see name.hobson.mark.ray.Traceable#getIntersection(name.hobson.mark.ray.Vector, name.hobson.mark.ray.Vector)
+	 */
+	public double getIntersection(Vector u, Vector v)
 	{
 		/*
 		 * intersection of ray:
@@ -68,8 +53,7 @@ public class Sphere implements SceneObject
 		 */
 
 		// q = u - p0
-		q.set(u);
-		q.subtract(p0);
+		q.set(u).subtract(p0);
 
 		// calculate quadratic coefficients
 		double a = v.dot();
@@ -79,7 +63,7 @@ public class Sphere implements SceneObject
 		// complex solution => no intersection
 		double d = b*b - 4*a*c;
 		if (d <= 0)
-			return false;
+			return Double.NaN;
 		
 		// solve quadratic for t
 		d = Math.sqrt(d);
@@ -87,28 +71,25 @@ public class Sphere implements SceneObject
 		double t2 = c / (a*t1);
 		
 		if (t1 < 0 && t2 < 0)
-			return false;
+			return Double.NaN;
 		
-		// p1 = u + v*t1
-		p.set(v);
-		p.scale(t1);
-		p.add(u);
-		
-		// p2 = u + v*t2
-		q.set(v);
-		q.scale(t2);
-		q.add(u);
-		
-		// TODO: set p to proper closest to camera of p1 or p2
-		if (q.z < p.z)
-			p.set(q);
-		
-		return true;
+		return (t1 < t2) ? t1 : t2;
 	}
 	
-	public void getNormal(Vector p, Vector n)
+	/*
+	 * @see name.hobson.mark.ray.Traceable#getNormal(name.hobson.mark.ray.Vector, name.hobson.mark.ray.Vector)
+	 */
+	public Vector getNormal(Vector p, Vector n)
 	{
-		n.set(p);
-		n.subtract(p0);
+		return n.set(p).subtract(p0);
+	}
+	
+	/*
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return getClass().getName() + "[p0=" + p0 + ",r=" + r + "]";
 	}
 }

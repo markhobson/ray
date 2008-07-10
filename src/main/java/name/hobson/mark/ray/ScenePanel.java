@@ -21,6 +21,7 @@ import javax.swing.JComponent;
  */
 public class ScenePanel extends JComponent
 {
+	private static final int NANO = 1000 * 1000 * 1000;
 	private static final long serialVersionUID = 1L;
 	
 	private Scene scene;
@@ -30,11 +31,13 @@ public class ScenePanel extends JComponent
 	private MemoryImageSource imageSource;
 	private Image image;
 	private String text;
+	private long time;
+	private long frames;
 	
 	public ScenePanel(Scene scene)
 	{
 		this.scene = scene;
-		tracer = new Tracer(scene);		
+		tracer = new Tracer(scene);
 	}
 	
 	public Scene getScene()
@@ -68,12 +71,14 @@ public class ScenePanel extends JComponent
 			size = getSize();
 			pixels = new int[size.width * size.height];
 			imageSource = new MemoryImageSource(size.width, size.height, pixels, 0, size.width);
+			time = System.nanoTime();
+			frames = 0;
 		}
 
-		long time = System.nanoTime();
 		tracer.trace(pixels, size.width, size.height);
-		time = System.nanoTime() - time;
-		text = (time == 0) ? "? fps" : (1000000000 / time) + " fps";
+		
+		frames++;
+		text = frames * NANO / (System.nanoTime() - time) + " fps";
 
 		image = createImage(imageSource);
 	}

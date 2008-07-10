@@ -6,11 +6,13 @@
 package name.hobson.mark.ray;
 
 import java.awt.Color;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
+
+import name.hobson.mark.ray.material.DefaultMaterial;
+import name.hobson.mark.ray.object.Plane;
+import name.hobson.mark.ray.object.Sphere;
 
 /**
  * 
@@ -20,31 +22,8 @@ import javax.swing.WindowConstants;
  */
 public class Ray extends JFrame
 {
+	private static final double DEGREE = 2 * Math.PI / 360;
 	private static final long serialVersionUID = 1L;
-	
-	private Sphere s1;
-	private Sphere s2;
-	private Sphere s3;
-	private Light l1;
-	private Light l2;
-	
-	private class AnimationTimerTask extends TimerTask
-	{
-		private double a = 0;
-		
-		@Override
-		public void run()
-		{
-			l1.getOrigin().set(500*Math.cos(a), 500, 2000 + 500*Math.sin(a));
-			l2.getOrigin().set(0, -500*Math.cos(a*2), 2000 + 500*Math.sin(a*2));
-			s2.getOrigin().set(200 * Math.cos(-a*15/9), 100, 2000 + 200*Math.sin(-a*15/9));
-			s3.getOrigin().set(400 * Math.cos(a*17/27), -150, 2000 + 400*Math.sin(a*17/27));
-			a += 2 * Math.PI / 360; 
-			
-			getContentPane().invalidate();
-			getContentPane().repaint(50);
-		}	
-	}
 	
 	public Ray()
 	{
@@ -54,23 +33,34 @@ public class Ray extends JFrame
 		setSize(320, 256);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		
-		Scene scene = new Scene();
-		s1 = new Sphere(0, -150, 2000, 200, Color.WHITE);
+		Scene scene = new Scene(new Color(48, 48, 48));
+
+		Plane ground = new Plane(new Vector(), new Vector(0, 1, 0), new DefaultMaterial(Color.GREEN));
+		scene.add(ground);
+		
+		Sphere s1 = new Sphere(new Vector(0, 300, 2000), 150, new DefaultMaterial(Color.RED, 0, 0.5, 50));
 		scene.add(s1);
-		s2 = new Sphere(200, 100, 2000, 100, Color.WHITE);
+		
+		Sphere s2 = new Sphere(new Vector(0, 300, 2000), 100, new DefaultMaterial(Color.YELLOW, 0, 0.5, 50));
 		scene.add(s2);
-		s3 = new Sphere(400, -150, 2000, 50, Color.WHITE);
+		
+		Sphere s3 = new Sphere(new Vector(0, 300, 2000), 50, new DefaultMaterial(Color.BLUE, 0, 0.5, 50));
 		scene.add(s3);
-		l1 = new Light(500, 500, 2000, Color.YELLOW);
+		
+		Light l1 = new Light(new Vector(-500, 500, 1000), Color.DARK_GRAY);
 		scene.addLight(l1);
-		l2 = new Light(0, -500, 2000, Color.BLUE);
+		
+		Light l2 = new Light(new Vector(0, 500, 2000), Color.GRAY);
 		scene.addLight(l2);
-		scene.addLight(new Light(-500, -100, 1600, Color.RED));
 		
-		setContentPane(new ScenePanel(scene));
+		ScenePanel panel = new ScenePanel(scene);
+		Animator animator = new Animator(panel);
+
+		animator.circleY(s2, 200, DEGREE, 20);
+		animator.circleY(s3, 300, -DEGREE, 20);
+		animator.circleY(l2, 300, -DEGREE, 30);
 		
-		Timer timer = new Timer(true);
-		timer.scheduleAtFixedRate(new AnimationTimerTask(), 0, 50);
+		setContentPane(panel);
 	}
 	
 	public static void main(String[] args)

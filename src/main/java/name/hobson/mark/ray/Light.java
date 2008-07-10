@@ -13,15 +13,10 @@ import java.awt.Color;
  * @author	Mark Hobson
  * @version	$Id$
  */
-public class Light
+public class Light implements Positionable
 {
 	private Vector p0;
 	private Color color;
-	
-	public Light(double x0, double y0, double z0, Color color)
-	{
-		this(new Vector(x0, y0, z0), color);
-	}
 	
 	public Light(Vector p0, Color color)
 	{

@@ -22,50 +22,125 @@ public class Vector
 		this(0, 0, 0);
 	}
 	
+	public Vector(Vector v)
+	{
+		this(v.x, v.y, v.z);
+	}
+	
+	public Vector(double n)
+	{
+		this(n, n, n);
+	}
+	
 	public Vector(double x, double y, double z)
 	{
 		set(x, y, z);
 	}
 	
-	public void set(Vector v)
+	public Vector set(Vector v)
 	{
-		set(v.x, v.y, v.z);
+		x = v.x;
+		y = v.y;
+		z = v.z;
+		return this;
 	}
 	
-	public void set(double x, double y, double z)
+	public Vector set(double x, double y, double z)
 	{
 		this.x = x;
 		this.y = y;
-		this.z = z;		
+		this.z = z;
+		return this;
 	}
 	
-	public void add(Vector v)
+	public Vector add(Vector v)
 	{
 		x += v.x;
 		y += v.y;
 		z += v.z;
+		return this;
 	}
 	
-	public void subtract(Vector v)
+	public Vector subtract(Vector v)
 	{
 		x -= v.x;
 		y -= v.y;
 		z -= v.z;
+		return this;
 	}
 	
-	public void scale(double s)
+	public Vector subtract(double s, Vector v)
+	{
+		x -= s * v.x;
+		y -= s * v.y;
+		z -= s * v.z;
+		return this;
+	}
+	
+	public Vector scale(double s)
 	{
 		x *= s;
 		y *= s;
 		z *= s;
+		return this;
 	}
 	
-	public void unit()
+	public Vector divide(double s)
+	{
+		x /= s;
+		y /= s;
+		z /= s;
+		return this;
+	}
+	
+	public Vector rotate(Vector a)
+	{
+		return rotateX(a.x).rotateY(a.y).rotateZ(a.z);
+	}
+	
+	public Vector rotateX(double a)
+	{
+		double sin = Math.sin(a);
+		double cos = Math.cos(a);
+		
+		double oy = y;
+		y = oy * cos - z * sin;
+		z = oy * sin + z * cos;
+		
+		return this;
+	}
+	
+	public Vector rotateY(double a)
+	{
+		double sin = Math.sin(a);
+		double cos = Math.cos(a);
+		
+		double ox = x;
+		x = ox * cos - z * sin;
+		z = ox * sin + z * cos;
+		
+		return this;
+	}
+	
+	public Vector rotateZ(double a)
+	{
+		double sin = Math.sin(a);
+		double cos = Math.cos(a);
+		
+		double ox = x;
+		x = ox * cos - y * sin;
+		y = ox * sin + y * cos;
+		
+		return this;
+	}
+	
+	public Vector unit()
 	{
 		double mod = Math.sqrt(x*x + y*y + z*z);
 		x /= mod;
 		y /= mod;
 		z /= mod;
+		return this;
 	}
 	
 	public double mod()
