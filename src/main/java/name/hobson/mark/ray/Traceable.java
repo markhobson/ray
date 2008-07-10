@@ -5,7 +5,6 @@
  */
 package name.hobson.mark.ray;
 
-
 /**
  * 
  * 
