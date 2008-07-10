@@ -5,8 +5,9 @@
  */
 package name.hobson.mark.ray;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 
@@ -18,7 +19,7 @@ public class Animator
 {
 	// classes ----------------------------------------------------------------
 	
-	private class CircleTask extends TimerTask
+	private class CircleTask implements Runnable
 	{
 		// fields -------------------------------------------------------------
 		
@@ -52,7 +53,6 @@ public class Animator
 		/**
 		 * {@inheritDoc}
 		 */
-		@Override
 		public void run()
 		{
 			// o = p0 + r rot a
@@ -67,7 +67,7 @@ public class Animator
 
 	private final ScenePanel panel;
 	
-	private final Timer timer;
+	private final ScheduledExecutorService executor;
 	
 	// constructors -----------------------------------------------------------
 
@@ -75,7 +75,7 @@ public class Animator
 	{
 		this.panel = panel;
 		
-		timer = new Timer(true);
+		executor = Executors.newSingleThreadScheduledExecutor();
 	}
 	
 	// public methods ---------------------------------------------------------
@@ -102,7 +102,7 @@ public class Animator
 	
 	public void circle(Positionable object, Vector p0, Vector r, Vector da, int period)
 	{
-		timer.scheduleAtFixedRate(new CircleTask(object, p0, r, da), 0, period);
+		executor.scheduleAtFixedRate(new CircleTask(object, p0, r, da), 0, period, TimeUnit.MILLISECONDS);
 	}
 	
 	// private methods --------------------------------------------------------
