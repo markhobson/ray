@@ -6,8 +6,9 @@
 package name.hobson.mark.ray;
 
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 
@@ -21,9 +22,9 @@ public class Scene
 	
 	private final Color ambient;
 	
-	private final List<Traceable> objects;
+	private final Set<Traceable> objects;
 	
-	private final List<Light> lights;
+	private final Set<Light> lights;
 	
 	// constructors -----------------------------------------------------------
 	
@@ -36,8 +37,8 @@ public class Scene
 	{
 		this.ambient = ambient;
 		
-		objects = new ArrayList<Traceable>();
-		lights = new ArrayList<Light>();
+		objects = new HashSet<Traceable>();
+		lights = new HashSet<Light>();
 	}
 	
 	// public methods ---------------------------------------------------------
@@ -47,14 +48,19 @@ public class Scene
 		return ambient;
 	}
 	
-	public void add(Traceable object)
+	public void addObject(Traceable object)
 	{
 		objects.add(object);
 	}
 	
-	public void remove(Traceable object)
+	public void removeObject(Traceable object)
 	{
 		objects.remove(object);
+	}
+	
+	public Set<Traceable> getObjects()
+	{
+		return Collections.unmodifiableSet(objects);
 	}
 	
 	public void addLight(Light light)
@@ -67,33 +73,8 @@ public class Scene
 		lights.remove(light);
 	}
 	
-	public Traceable getObject(int index)
+	public Set<Light> getLights()
 	{
-		return objects.get(index);
-	}
-	
-	public int getObjectCount()
-	{
-		return objects.size();
-	}
-	
-	public Traceable[] getObjects()
-	{
-		return objects.toArray(new Traceable[objects.size()]);
-	}
-	
-	public Light getLight(int index)
-	{
-		return lights.get(index);
-	}
-	
-	public int getLightCount()
-	{
-		return lights.size();
-	}
-	
-	public Light[] getLights()
-	{
-		return lights.toArray(new Light[lights.size()]);
+		return Collections.unmodifiableSet(lights);
 	}
 }

@@ -45,8 +45,8 @@ public class Tracer
 	{
 		this.scene = scene;
 		
-		objects = this.scene.getObjects();
-		lights = this.scene.getLights();
+		objects = this.scene.getObjects().toArray(new Traceable[0]);
+		lights = this.scene.getLights().toArray(new Light[0]);
 		
 		p = new Vector();
 		u = new Vector();

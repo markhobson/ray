@@ -39,16 +39,16 @@ public class Ray extends JFrame
 		Scene scene = new Scene(new Color(48, 48, 48));
 
 		Plane ground = new Plane(new Vector(), new Vector(0, 1, 0), new DefaultMaterial(Color.GREEN));
-		scene.add(ground);
+		scene.addObject(ground);
 		
 		Sphere s1 = new Sphere(new Vector(0, 300, 2000), 150, new DefaultMaterial(Color.RED, 0, 0.5, 50));
-		scene.add(s1);
+		scene.addObject(s1);
 		
 		Sphere s2 = new Sphere(new Vector(0, 300, 2000), 100, new DefaultMaterial(Color.YELLOW, 0, 0.5, 50));
-		scene.add(s2);
+		scene.addObject(s2);
 		
 		Sphere s3 = new Sphere(new Vector(0, 300, 2000), 50, new DefaultMaterial(Color.BLUE, 0, 0.5, 50));
-		scene.add(s3);
+		scene.addObject(s3);
 		
 		Light l1 = new Light(new Vector(-500, 500, 1000), Color.DARK_GRAY);
 		scene.addLight(l1);
