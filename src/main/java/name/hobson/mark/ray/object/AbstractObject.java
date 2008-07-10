@@ -42,6 +42,8 @@ public abstract class AbstractObject implements Positionable, Traceable
 		return p0;
 	}
 	
+	// Traceable methods ------------------------------------------------------
+	
 	/**
 	 * {@inheritDoc}
 	 */
