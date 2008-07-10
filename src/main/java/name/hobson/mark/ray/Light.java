@@ -15,8 +15,13 @@ import java.awt.Color;
  */
 public class Light implements Positionable
 {
-	private Vector p0;
-	private Color color;
+	// fields -----------------------------------------------------------------
+	
+	private final Vector p0;
+	
+	private final Color color;
+	
+	// constructors -----------------------------------------------------------
 	
 	public Light(Vector p0, Color color)
 	{
@@ -24,10 +29,17 @@ public class Light implements Positionable
 		this.color = color;
 	}
 	
+	// Positionable methods ---------------------------------------------------
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	public Vector getOrigin()
 	{
 		return p0;
 	}
+	
+	// public methods ---------------------------------------------------------
 	
 	public Color getColor()
 	{

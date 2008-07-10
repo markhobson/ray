@@ -18,10 +18,17 @@ import name.hobson.mark.ray.Vector;
  */
 public class DefaultMaterial implements Material
 {
-	private Color color;
-	private double opacity;
-	private double shine;
-	private int phong;
+	// fields -----------------------------------------------------------------
+	
+	private final Color color;
+	
+	private final double opacity;
+	
+	private final double shine;
+	
+	private final int phong;
+	
+	// constructors -----------------------------------------------------------
 	
 	public DefaultMaterial(Color color)
 	{
@@ -36,21 +43,35 @@ public class DefaultMaterial implements Material
 		this.phong = phong;
 	}
 	
+	// Material methods -------------------------------------------------------
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	public Color getColor(Vector p)
 	{
 		return color;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public double getOpacity(Vector p)
 	{
 		return opacity;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public double getShine(Vector p)
 	{
 		return shine;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public int getPhong(Vector p)
 	{
 		return phong;

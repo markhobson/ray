@@ -13,19 +13,33 @@ package name.hobson.mark.ray;
  */
 public class Tracer
 {
+	// constants --------------------------------------------------------------
+	
 	private static final boolean SHADOWS = true;
+	
 	private static final Pixel EMPTY_PIXEL = new Pixel();
 	
-	private Scene scene;
-	private Traceable[] objects;
-	private Light[] lights;
+	// fields -----------------------------------------------------------------
 	
-	private Vector p;
-	private Vector u;
-	private Vector v;
-	private Vector n;
-	private Vector l;
-	private Pixel pixel;
+	private final Scene scene;
+	
+	private final Traceable[] objects;
+	
+	private final Light[] lights;
+	
+	private final Vector p;
+	
+	private final Vector u;
+	
+	private final Vector v;
+	
+	private final Vector n;
+	
+	private final Vector l;
+	
+	private final Pixel pixel;
+	
+	// constructors -----------------------------------------------------------
 	
 	public Tracer(Scene scene)
 	{
@@ -42,6 +56,8 @@ public class Tracer
 		pixel = new Pixel();
 	}
 	
+	// public methods ---------------------------------------------------------
+	
 	public void trace(int[] pixels, int width, int height)
 	{
 		int w = width / 2;
@@ -54,10 +70,13 @@ public class Tracer
 			{
 				u.set(0, 50, 0);
 				v.set(x, 50 + y, 500);
+				
 				pixels[i++] = getPixel(u, v, null).getRGB();
 			}
 		}
 	}
+	
+	// private methods --------------------------------------------------------
 
 	private Pixel getPixel(Vector u, Vector v, Traceable current)
 	{
@@ -65,6 +84,7 @@ public class Tracer
 		double minT = Double.MAX_VALUE;
 		
 		double t;
+		
 		for (Traceable object : objects)
 		{
 			if (object != current && !Double.isNaN((t = object.getIntersection(u, v))) && (t < minT))
@@ -75,7 +95,9 @@ public class Tracer
 		}
 
 		if (closest == null)
+		{
 			return EMPTY_PIXEL;
+		}
 
 		// p = u + v t_min
 		p.set(v).scale(minT).add(u);
@@ -102,16 +124,24 @@ public class Tracer
 				l.unit();
 				
 				// diffuse reflection
+				
 				double d = n.dot(l);
+				
 				if (d > 0)
+				{
 					pixel.mix(light.getColor(), d);
+				}
 				
 				// phong illumination
+				
 				if (phong > 0)
 				{
 					d = l.subtract(2 * l.dot(n), n).dot(u);
+					
 					if (d > 0)
+					{
 						pixel.mix(light.getColor(), pow(d, phong));
+					}
 				}
 			}
 		}
@@ -119,11 +149,15 @@ public class Tracer
 		pixel.scale(material.getColor(p));
 		
 		double shine = material.getShine(p);
+		
 		if (shine == 0)
+		{
 			return pixel;
+		}
 		
 		// u = p
 		u.set(p);
+		
 		// v = v - (2*v.n)n
 		v.subtract(2 * v.dot(n), n);
 
@@ -140,16 +174,23 @@ public class Tracer
 		for (Traceable object : objects)
 		{
 			if (object != current && !Double.isNaN(object.getIntersection(u, v)))
+			{
 				return true;
+			}
 		}
+		
 		return false;
 	}
 	
-	private double pow(double a, int b)
+	private static double pow(double a, int b)
 	{
 		double c = 1;
+		
 		while (b-- > 0)
+		{
 			c *= a;
+		}
+		
 		return c;
 	}
 }

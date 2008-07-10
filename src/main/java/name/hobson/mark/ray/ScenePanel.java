@@ -21,35 +21,60 @@ import javax.swing.JComponent;
  */
 public class ScenePanel extends JComponent
 {
+	// constants --------------------------------------------------------------
+	
 	private static final int NANO = 1000 * 1000 * 1000;
+	
 	private static final long serialVersionUID = 1L;
 	
-	private Scene scene;
-	private Tracer tracer;
+	// fields -----------------------------------------------------------------
+	
+	private final Scene scene;
+	
+	private final Tracer tracer;
+	
 	private Dimension size;
+	
 	private int[] pixels;
+	
 	private MemoryImageSource imageSource;
+	
 	private Image image;
+	
 	private String text;
+	
 	private long time;
+	
 	private long frames;
+	
+	// constructors -----------------------------------------------------------
 	
 	public ScenePanel(Scene scene)
 	{
 		this.scene = scene;
+		
 		tracer = new Tracer(scene);
 	}
+	
+	// public methods ---------------------------------------------------------
 	
 	public Scene getScene()
 	{
 		return scene;
 	}
 	
+	// JComponent methods -----------------------------------------------------
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected void paintComponent(Graphics graphics)
 	{
 		if (image == null)
+		{
 			createImage();
+		}
 
 		graphics.drawImage(image, 0, 0, this);
 
@@ -57,12 +82,20 @@ public class ScenePanel extends JComponent
 		graphics.drawString(text, 0, 12);
 	}
 	
+	// Container methods ------------------------------------------------------
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void invalidate()
 	{
 		super.invalidate();
+		
 		image = null;
 	}
+	
+	// private methods --------------------------------------------------------
 	
 	private void createImage()
 	{

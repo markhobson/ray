@@ -16,15 +16,25 @@ import java.util.TimerTask;
  */
 public class Animator
 {
+	// classes ----------------------------------------------------------------
+	
 	private class CircleTask extends TimerTask
 	{
-		private Positionable object;
-		private Vector p0;
-		private Vector r;
-		private Vector da;
+		// fields -------------------------------------------------------------
 		
-		private Vector o;
-		private Vector a;
+		private final Positionable object;
+		
+		private final Vector p0;
+		
+		private final Vector r;
+		
+		private final Vector da;
+		
+		private final Vector o;
+		
+		private final Vector a;
+		
+		// constructors -------------------------------------------------------
 		
 		public CircleTask(Positionable object, Vector p0, Vector r, Vector da)
 		{
@@ -37,6 +47,11 @@ public class Animator
 			a = new Vector();
 		}
 		
+		// Runnable methods ---------------------------------------------------
+		
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public void run()
 		{
@@ -47,9 +62,14 @@ public class Animator
 			update();
 		}
 	}
+	
+	// fields -----------------------------------------------------------------
 
-	private ScenePanel panel;
-	private Timer timer;
+	private final ScenePanel panel;
+	
+	private final Timer timer;
+	
+	// constructors -----------------------------------------------------------
 
 	public Animator(ScenePanel panel)
 	{
@@ -57,6 +77,8 @@ public class Animator
 		
 		timer = new Timer(true);
 	}
+	
+	// public methods ---------------------------------------------------------
 	
 	public void circleX(Positionable object, double r, double da, int period)
 	{
@@ -82,6 +104,8 @@ public class Animator
 	{
 		timer.scheduleAtFixedRate(new CircleTask(object, p0, r, da), 0, period);
 	}
+	
+	// private methods --------------------------------------------------------
 	
 	private void update()
 	{

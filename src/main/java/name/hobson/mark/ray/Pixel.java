@@ -15,10 +15,17 @@ import java.awt.Color;
  */
 public class Pixel
 {
+	// fields -----------------------------------------------------------------
+	
 	private int r;
+	
 	private int g;
+	
 	private int b;
+	
 	private int a;
+
+	// constructors -----------------------------------------------------------
 	
 	public Pixel()
 	{
@@ -45,6 +52,8 @@ public class Pixel
 		set(r, g, b, a);
 	}
 	
+	// public methods ---------------------------------------------------------
+	
 	public Pixel clear()
 	{
 		return set(0, 0, 0, 0xFF);
@@ -61,6 +70,7 @@ public class Pixel
 		this.g = g;
 		this.b = b;		
 		this.a = a;
+		
 		return this;
 	}
 
@@ -74,26 +84,38 @@ public class Pixel
 		r += ((rgb >> 16) & 0xFF) * brightness;
 		g += ((rgb >> 8) & 0xFF) * brightness;
 		b += (rgb & 0xFF) * brightness;
+		
 		return this;
 	}
 	
 	public Pixel scale(Color color)
 	{
 		int rgb = color.getRGB();
+		
 		r *= (double) ((rgb >> 16) & 0xFF) / 0xFF;
 		g *= (double) ((rgb >> 8) & 0xFF) / 0xFF;
 		b *= (double) (rgb & 0xFF) / 0xFF;
+		
 		return this;
 	}
 	
 	public int getRGB()
 	{
 		if (r > 0xFF)
+		{
 			r = 0xFF;
+		}
+		
 		if (g > 0xFF)
+		{
 			g = 0xFF;
+		}
+		
 		if (b > 0xFF)
+		{
 			b = 0xFF;
+		}
+		
 		return (a << 24) | (r << 16) | (g << 8) | b;		
 	}
 	
@@ -102,6 +124,11 @@ public class Pixel
 		return new Color(getRGB());
 	}
 	
+	// Object methods ---------------------------------------------------------
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String toString()
 	{

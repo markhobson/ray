@@ -22,8 +22,11 @@ import name.hobson.mark.ray.object.Sphere;
  */
 public class Ray extends JFrame
 {
+	// constants --------------------------------------------------------------
+	
 	private static final double DEGREE = 2 * Math.PI / 360;
-	private static final long serialVersionUID = 1L;
+	
+	// constructors -----------------------------------------------------------
 	
 	public Ray()
 	{
@@ -62,6 +65,8 @@ public class Ray extends JFrame
 		
 		setContentPane(panel);
 	}
+	
+	// main -------------------------------------------------------------------
 	
 	public static void main(String[] args)
 	{

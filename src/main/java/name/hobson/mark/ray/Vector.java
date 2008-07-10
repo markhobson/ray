@@ -13,9 +13,15 @@ package name.hobson.mark.ray;
  */
 public class Vector
 {
+	// fields -----------------------------------------------------------------
+	
 	public double x;
+	
 	public double y;
+	
 	public double z;
+	
+	// constructors -----------------------------------------------------------
 	
 	public Vector()
 	{
@@ -37,11 +43,14 @@ public class Vector
 		set(x, y, z);
 	}
 	
+	// public methods ---------------------------------------------------------
+	
 	public Vector set(Vector v)
 	{
 		x = v.x;
 		y = v.y;
 		z = v.z;
+		
 		return this;
 	}
 	
@@ -50,6 +59,7 @@ public class Vector
 		this.x = x;
 		this.y = y;
 		this.z = z;
+		
 		return this;
 	}
 	
@@ -58,6 +68,7 @@ public class Vector
 		x += v.x;
 		y += v.y;
 		z += v.z;
+		
 		return this;
 	}
 	
@@ -66,6 +77,7 @@ public class Vector
 		x -= v.x;
 		y -= v.y;
 		z -= v.z;
+		
 		return this;
 	}
 	
@@ -74,6 +86,7 @@ public class Vector
 		x -= s * v.x;
 		y -= s * v.y;
 		z -= s * v.z;
+		
 		return this;
 	}
 	
@@ -82,6 +95,7 @@ public class Vector
 		x *= s;
 		y *= s;
 		z *= s;
+		
 		return this;
 	}
 	
@@ -90,6 +104,7 @@ public class Vector
 		x /= s;
 		y /= s;
 		z /= s;
+		
 		return this;
 	}
 	
@@ -137,9 +152,11 @@ public class Vector
 	public Vector unit()
 	{
 		double mod = Math.sqrt(x*x + y*y + z*z);
+		
 		x /= mod;
 		y /= mod;
 		z /= mod;
+		
 		return this;
 	}
 	
@@ -158,6 +175,11 @@ public class Vector
 		return x*v.x + y*v.y + z*v.z;
 	}
 	
+	// Object methods ---------------------------------------------------------
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String toString()
 	{

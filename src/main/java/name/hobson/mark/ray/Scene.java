@@ -17,9 +17,15 @@ import java.util.List;
  */
 public class Scene
 {
-	private Color ambient;
-	private List<Traceable> objects;
-	private List<Light> lights;
+	// fields -----------------------------------------------------------------
+	
+	private final Color ambient;
+	
+	private final List<Traceable> objects;
+	
+	private final List<Light> lights;
+	
+	// constructors -----------------------------------------------------------
 	
 	public Scene()
 	{
@@ -29,9 +35,12 @@ public class Scene
 	public Scene(Color ambient)
 	{
 		this.ambient = ambient;
+		
 		objects = new ArrayList<Traceable>();
 		lights = new ArrayList<Light>();
 	}
+	
+	// public methods ---------------------------------------------------------
 	
 	public Color getAmbient()
 	{

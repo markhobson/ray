@@ -18,8 +18,13 @@ import name.hobson.mark.ray.Vector;
  */
 public abstract class AbstractObject implements Positionable, Traceable
 {
-	protected Vector p0;
-	protected Material material;
+	// fields -----------------------------------------------------------------
+	
+	protected final Vector p0;
+	
+	protected final Material material;
+	
+	// constructors -----------------------------------------------------------
 
 	public AbstractObject(Vector p0, Material material)
 	{
@@ -27,16 +32,18 @@ public abstract class AbstractObject implements Positionable, Traceable
 		this.material = material;
 	}
 	
-	/*
-	 * @see name.hobson.mark.ray.Positionable#getOrigin()
+	// Positionable methods ---------------------------------------------------
+	
+	/**
+	 * {@inheritDoc}
 	 */
 	public Vector getOrigin()
 	{
 		return p0;
 	}
 	
-	/*
-	 * @see name.hobson.mark.ray.Traceable#getMaterial()
+	/**
+	 * {@inheritDoc}
 	 */
 	public Material getMaterial()
 	{
