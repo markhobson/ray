@@ -16,7 +16,7 @@ import name.hobson.mark.ray.Vector;
  * @author	Mark Hobson
  * @version	$Id$
  */
-public class DefaultMaterial implements Material
+public class ColorMaterial implements Material
 {
 	// fields -----------------------------------------------------------------
 	
@@ -30,12 +30,12 @@ public class DefaultMaterial implements Material
 	
 	// constructors -----------------------------------------------------------
 	
-	public DefaultMaterial(Color color)
+	public ColorMaterial(Color color)
 	{
 		this(color, 0, 0, 0);
 	}
 	
-	public DefaultMaterial(Color color, double opacity, double shine, int phong)
+	public ColorMaterial(Color color, double opacity, double shine, int phong)
 	{
 		this.color = color;
 		this.opacity = opacity;
