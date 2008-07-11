@@ -34,7 +34,7 @@ public class Ray extends JFrame
 		
 		setLocationByPlatform(true);
 		setSize(320, 256);
-		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
 		Scene scene = new Scene(new Color(48, 48, 48));
 
