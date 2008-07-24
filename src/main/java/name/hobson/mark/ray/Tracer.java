@@ -60,16 +60,16 @@ public class Tracer
 	
 	public void trace(int[] pixels, int width, int height)
 	{
-		int w = width / 2;
-		int h = height / 2;
+		int x0 = width / 2;
+		int y0 = height / 2;
 		int i = 0;
 		
-		for (double y = h; y > -h; y--)
+		for (double y = 0; y < height; y++)
 		{
-			for (double x = -w; x < w; x++)
+			for (double x = 0; x < width; x++)
 			{
 				u.set(0, 50, 0);
-				v.set(x, 50 + y, 500);
+				v.set(x - x0, 50 + y0 - y, 500);
 				
 				pixels[i++] = getPixel(u, v, null).getRGB();
 			}
