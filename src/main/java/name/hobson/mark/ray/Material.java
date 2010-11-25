@@ -5,8 +5,6 @@
  */
 package name.hobson.mark.ray;
 
-import java.awt.Color;
-
 /**
  * 
  * 
@@ -15,7 +13,7 @@ import java.awt.Color;
  */
 public interface Material
 {
-	Color getColor(Vector p);
+	int getColor(Vector p);
 	
 	double getOpacity(Vector p);
 	

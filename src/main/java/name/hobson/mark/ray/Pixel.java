@@ -88,10 +88,8 @@ public class Pixel
 		return this;
 	}
 	
-	public Pixel scale(Color color)
+	public Pixel scale(int rgb)
 	{
-		int rgb = color.getRGB();
-		
 		r *= (double) ((rgb >> 16) & 0xFF) / 0xFF;
 		g *= (double) ((rgb >> 8) & 0xFF) / 0xFF;
 		b *= (double) (rgb & 0xFF) / 0xFF;
