@@ -54,6 +54,8 @@ public class ScenePanel extends JComponent
 	
 	private long time;
 	
+	private long frames;
+	
 	private boolean statisticsVisible;
 	
 	// ----------------------------------------------------------------------------------------------------------------
@@ -114,7 +116,7 @@ public class ScenePanel extends JComponent
 
 		if (statisticsVisible)
 		{
-			String text = String.format("%d x %d @ %.1f fps", size.width, size.height, (double) NANO / time);
+			String text = String.format("%d x %d @ %.1f fps", size.width, size.height, (double) NANO * frames / time);
 
 			graphics.setColor(Color.WHITE);
 			graphics.drawString(text, 0, 12);
@@ -146,9 +148,10 @@ public class ScenePanel extends JComponent
 			imageSource = new MemoryImageSource(size.width, size.height, pixels, 0, size.width);
 		}
 
-		time = System.nanoTime();
+		long start = System.nanoTime();
 		tracer.trace(pixels, size.width, size.height);
-		time = System.nanoTime() - time;
+		time += System.nanoTime() - start;
+		frames++;
 		
 		image = createImage(imageSource);
 	}
