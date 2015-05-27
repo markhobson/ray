@@ -10,6 +10,10 @@ package org.hobsoft.ray;
  */
 public interface Traceable
 {
+	// ----------------------------------------------------------------------------------------------------------------
+	// public methods
+	// ----------------------------------------------------------------------------------------------------------------
+
 	double getIntersection(Vector u, Vector v);
 	
 	Vector getNormal(Vector p, Vector n);
