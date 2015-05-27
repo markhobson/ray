@@ -69,7 +69,7 @@ public class Plane extends AbstractObject
 		
 		// t = (p0 - u).n / d
 		
-		double t = q.set(p0).subtract(u).dot(n) / d;
+		double t = q.set(getOrigin()).subtract(u).dot(n) / d;
 		
 		// 0 <= t <= 1 => intersection
 		

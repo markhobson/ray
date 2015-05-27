@@ -67,7 +67,7 @@ public class Sphere extends AbstractObject
 
 		// q = u - p0
 		
-		q.set(u).subtract(p0);
+		q.set(u).subtract(getOrigin());
 
 		// calculate quadratic coefficients
 		
@@ -101,7 +101,7 @@ public class Sphere extends AbstractObject
 	@Override
 	public Vector getNormal(Vector p, Vector n)
 	{
-		return n.set(p).subtract(p0);
+		return n.set(p).subtract(getOrigin());
 	}
 	
 	// ----------------------------------------------------------------------------------------------------------------
@@ -120,6 +120,6 @@ public class Sphere extends AbstractObject
 	@Override
 	public String toString()
 	{
-		return getClass().getName() + "[p0=" + p0 + ",r=" + r + "]";
+		return getClass().getName() + "[p0=" + getOrigin() + ",r=" + r + "]";
 	}
 }

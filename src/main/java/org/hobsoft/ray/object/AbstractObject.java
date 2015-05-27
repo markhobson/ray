@@ -27,9 +27,9 @@ public abstract class AbstractObject implements Positionable, Traceable
 	// fields
 	// ----------------------------------------------------------------------------------------------------------------
 	
-	protected final Vector p0;
+	private final Vector p0;
 	
-	protected final Material material;
+	private final Material material;
 	
 	// ----------------------------------------------------------------------------------------------------------------
 	// constructors
