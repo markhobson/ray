@@ -184,9 +184,6 @@ public class Tracer
 		Pixel newPixel = new Pixel(pixel.getRGB());
 		newPixel.mix(getPixel(u, v, closest).getRGB(), shine);
 		return newPixel;
-
-//		getPixel(u, v, object);
-//		return pixel;
 	}
 
 	private boolean intersects(Vector u, Vector v, Traceable current)
