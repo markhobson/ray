@@ -102,10 +102,15 @@ public class Tracer
 		
 		for (Traceable object : objects)
 		{
-			if (object != current && !Double.isNaN((t = object.getIntersection(u, v))) && (t < minT))
+			if (object != current)
 			{
-				minT = t;
-				closest = object;
+				t = object.getIntersection(u, v);
+				
+				if (!Double.isNaN(t) && (t < minT))
+				{
+					minT = t;
+					closest = object;
+				}
 			}
 		}
 
