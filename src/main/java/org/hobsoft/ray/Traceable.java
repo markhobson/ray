@@ -7,9 +7,6 @@ package org.hobsoft.ray;
 
 /**
  * 
- * 
- * @author	Mark Hobson
- * @version	$Id$
  */
 public interface Traceable
 {

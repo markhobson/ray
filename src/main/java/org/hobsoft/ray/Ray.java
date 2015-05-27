@@ -16,9 +16,6 @@ import org.hobsoft.ray.object.Sphere;
 
 /**
  * 
- * 
- * @author	Mark Hobson
- * @version	$Id$
  */
 public class Ray extends JFrame
 {

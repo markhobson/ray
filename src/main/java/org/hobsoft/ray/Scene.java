@@ -12,9 +12,6 @@ import java.util.Set;
 
 /**
  * 
- * 
- * @author	Mark Hobson
- * @version	$Id$
  */
 public class Scene
 {

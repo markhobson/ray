@@ -17,9 +17,6 @@ import javax.swing.JComponent;
 
 /**
  * 
- * 
- * @author	Mark Hobson
- * @version	$Id$
  */
 public class ScenePanel extends JComponent
 {

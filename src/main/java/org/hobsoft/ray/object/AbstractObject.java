@@ -12,9 +12,6 @@ import org.hobsoft.ray.Vector;
 
 /**
  * 
- * 
- * @author	Mark Hobson
- * @version	$Id$
  */
 public abstract class AbstractObject implements Positionable, Traceable
 {

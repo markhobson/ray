@@ -11,9 +11,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 
- * 
- * @author	Mark Hobson
- * @version	$Id$
  */
 public class Animator
 {

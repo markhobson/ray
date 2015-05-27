@@ -10,9 +10,6 @@ import org.hobsoft.ray.Vector;
 
 /**
  * 
- * 
- * @author	Mark Hobson
- * @version	$Id$
  */
 public class Sphere extends AbstractObject
 {

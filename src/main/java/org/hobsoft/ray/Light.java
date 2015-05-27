@@ -9,9 +9,6 @@ import java.awt.Color;
 
 /**
  * 
- * 
- * @author	Mark Hobson
- * @version	$Id$
  */
 public class Light implements Positionable
 {
