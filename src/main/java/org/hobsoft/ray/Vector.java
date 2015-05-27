@@ -22,11 +22,11 @@ public class Vector
 	// fields
 	// ----------------------------------------------------------------------------------------------------------------
 	
-	public double x;
+	private double x;
 	
-	public double y;
+	private double y;
 	
-	public double z;
+	private double z;
 	
 	// ----------------------------------------------------------------------------------------------------------------
 	// constructors
