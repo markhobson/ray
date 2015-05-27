@@ -28,7 +28,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>name.hobson.mark.ray.Ray</mainClass>
+							<mainClass>org.hobsoft.ray.Ray</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

@@ -3,11 +3,11 @@
  *
  * (c) 2006 Mark Hobson.  All rights reserved.
  */
-package name.hobson.mark.ray.material;
+package org.hobsoft.ray.material;
 
 import java.awt.Color;
 
-import name.hobson.mark.ray.Vector;
+import org.hobsoft.ray.Vector;
 
 /**
  * 

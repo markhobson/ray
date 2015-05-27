@@ -3,16 +3,16 @@
  *
  * (c) 2005 Mark Hobson.  All rights reserved.
  */
-package name.hobson.mark.ray;
+package org.hobsoft.ray;
 
 import java.awt.Color;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import name.hobson.mark.ray.material.ColorMaterial;
-import name.hobson.mark.ray.object.Plane;
-import name.hobson.mark.ray.object.Sphere;
+import org.hobsoft.ray.material.ColorMaterial;
+import org.hobsoft.ray.object.Plane;
+import org.hobsoft.ray.object.Sphere;
 
 /**
  * 

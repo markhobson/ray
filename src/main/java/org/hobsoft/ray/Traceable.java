@@ -3,7 +3,7 @@
  *
  * (c) 2006 Mark Hobson.  All rights reserved.
  */
-package name.hobson.mark.ray;
+package org.hobsoft.ray;
 
 /**
  * 

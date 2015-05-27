@@ -3,12 +3,12 @@
  *
  * (c) 2006 Mark Hobson.  All rights reserved.
  */
-package name.hobson.mark.ray.object;
+package org.hobsoft.ray.object;
 
-import name.hobson.mark.ray.Material;
-import name.hobson.mark.ray.Positionable;
-import name.hobson.mark.ray.Traceable;
-import name.hobson.mark.ray.Vector;
+import org.hobsoft.ray.Material;
+import org.hobsoft.ray.Positionable;
+import org.hobsoft.ray.Traceable;
+import org.hobsoft.ray.Vector;
 
 /**
  * 

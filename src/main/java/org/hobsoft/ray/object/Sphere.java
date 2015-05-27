@@ -3,10 +3,10 @@
  *
  * (c) 2005 Mark Hobson.  All rights reserved.
  */
-package name.hobson.mark.ray.object;
+package org.hobsoft.ray.object;
 
-import name.hobson.mark.ray.Material;
-import name.hobson.mark.ray.Vector;
+import org.hobsoft.ray.Material;
+import org.hobsoft.ray.Vector;
 
 /**
  * 
