@@ -9,7 +9,6 @@
 	<groupId>org.hobsoft.ray</groupId>
 	<artifactId>ray</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
 	
 	<name>Ray</name>
 	<description>Simple ray-tracing demo.</description>
