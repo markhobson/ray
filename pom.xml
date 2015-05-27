@@ -15,7 +15,9 @@
 	<description>Simple ray-tracing demo.</description>
 	
 	<build>
+	
 		<plugins>
+		
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
@@ -23,6 +25,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			
 			<plugin>
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
@@ -33,7 +36,9 @@
 					</archive>
 				</configuration>
 			</plugin>
+			
 		</plugins>
+		
 	</build>
 	
 </project>
