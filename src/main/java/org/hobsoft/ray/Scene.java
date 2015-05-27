@@ -37,8 +37,8 @@ public class Scene
 	{
 		this.ambient = ambient;
 		
-		objects = new HashSet<Traceable>();
-		lights = new HashSet<Light>();
+		objects = new HashSet<>();
+		lights = new HashSet<>();
 	}
 	
 	// public methods ---------------------------------------------------------

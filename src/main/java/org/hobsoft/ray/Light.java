@@ -34,6 +34,7 @@ public class Light implements Positionable
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public Vector getOrigin()
 	{
 		return p0;

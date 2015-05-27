@@ -43,6 +43,7 @@ public abstract class AbstractMaterial implements Material
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public double getOpacity(Vector p)
 	{
 		return opacity;
@@ -51,6 +52,7 @@ public abstract class AbstractMaterial implements Material
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public double getShine(Vector p)
 	{
 		return shine;
@@ -59,6 +61,7 @@ public abstract class AbstractMaterial implements Material
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public int getPhong(Vector p)
 	{
 		return phong;

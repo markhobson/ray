@@ -38,6 +38,7 @@ public class Plane extends AbstractObject
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public double getIntersection(Vector u, Vector v)
 	{
 		/*
@@ -75,6 +76,7 @@ public class Plane extends AbstractObject
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public Vector getNormal(Vector p, Vector n)
 	{
 		return n.set(this.n);

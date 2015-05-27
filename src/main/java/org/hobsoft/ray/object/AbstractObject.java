@@ -37,6 +37,7 @@ public abstract class AbstractObject implements Positionable, Traceable
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public Vector getOrigin()
 	{
 		return p0;
@@ -47,6 +48,7 @@ public abstract class AbstractObject implements Positionable, Traceable
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public Material getMaterial()
 	{
 		return material;
