@@ -37,27 +37,18 @@ public abstract class AbstractMaterial implements Material
 	
 	// Material methods -------------------------------------------------------
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public double getOpacity(Vector p)
 	{
 		return opacity;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public double getShine(Vector p)
 	{
 		return shine;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int getPhong(Vector p)
 	{

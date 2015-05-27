@@ -174,9 +174,6 @@ public class Vector
 	
 	// Object methods ---------------------------------------------------------
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

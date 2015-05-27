@@ -47,9 +47,6 @@ public class Animator
 		
 		// Runnable methods ---------------------------------------------------
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void run()
 		{

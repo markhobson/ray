@@ -34,9 +34,6 @@ public class ColorMaterial extends AbstractMaterial
 	
 	// Material methods -------------------------------------------------------
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int getColor(Vector p)
 	{

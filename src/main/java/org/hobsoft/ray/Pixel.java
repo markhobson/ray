@@ -121,9 +121,6 @@ public class Pixel
 	
 	// Object methods ---------------------------------------------------------
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

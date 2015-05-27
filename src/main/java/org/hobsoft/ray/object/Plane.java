@@ -32,9 +32,6 @@ public class Plane extends AbstractObject
 	
 	// Traceable methods ------------------------------------------------------
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public double getIntersection(Vector u, Vector v)
 	{
@@ -70,9 +67,6 @@ public class Plane extends AbstractObject
 		return t;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Vector getNormal(Vector p, Vector n)
 	{

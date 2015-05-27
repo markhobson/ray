@@ -31,9 +31,6 @@ public abstract class AbstractObject implements Positionable, Traceable
 	
 	// Positionable methods ---------------------------------------------------
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Vector getOrigin()
 	{
@@ -42,9 +39,6 @@ public abstract class AbstractObject implements Positionable, Traceable
 	
 	// Traceable methods ------------------------------------------------------
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Material getMaterial()
 	{

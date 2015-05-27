@@ -28,9 +28,6 @@ public class Light implements Positionable
 	
 	// Positionable methods ---------------------------------------------------
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Vector getOrigin()
 	{

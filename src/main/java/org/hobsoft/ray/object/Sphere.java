@@ -35,9 +35,6 @@ public class Sphere extends AbstractObject
 	
 	// Traceable methods ------------------------------------------------------
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public double getIntersection(Vector u, Vector v)
 	{
@@ -87,9 +84,6 @@ public class Sphere extends AbstractObject
 		return (t1 < t2) ? t1 : t2;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Vector getNormal(Vector p, Vector n)
 	{
@@ -105,9 +99,6 @@ public class Sphere extends AbstractObject
 
 	// Object methods ---------------------------------------------------------
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

@@ -84,9 +84,6 @@ public class ScenePanel extends JComponent
 	
 	// JComponent methods -----------------------------------------------------
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void paintComponent(Graphics graphics)
 	{
@@ -108,9 +105,6 @@ public class ScenePanel extends JComponent
 	
 	// Container methods ------------------------------------------------------
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void invalidate()
 	{
