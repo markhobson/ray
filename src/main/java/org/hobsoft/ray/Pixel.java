@@ -68,7 +68,7 @@ public class Pixel
 	{
 		this.r = r;
 		this.g = g;
-		this.b = b;		
+		this.b = b;
 		this.a = a;
 		
 		return this;
@@ -114,7 +114,7 @@ public class Pixel
 			b = 0xFF;
 		}
 		
-		return (a << 24) | (r << 16) | (g << 8) | b;		
+		return (a << 24) | (r << 16) | (g << 8) | b;
 	}
 	
 	public Color toColor()

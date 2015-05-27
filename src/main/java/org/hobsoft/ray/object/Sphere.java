@@ -32,7 +32,7 @@ public class Sphere extends AbstractObject
 		
 		this.r = r;
 		
-		rsq = r*r;
+		rsq = r * r;
 		q = new Vector();
 	}
 	
@@ -69,7 +69,7 @@ public class Sphere extends AbstractObject
 		
 		// complex solution => no intersection
 		
-		double d = b*b - 4*a*c;
+		double d = b * b - 4 * a * c;
 		
 		if (d <= 0)
 		{
@@ -79,8 +79,8 @@ public class Sphere extends AbstractObject
 		// solve quadratic for t
 		
 		d = Math.sqrt(d);
-		double t1 = (b > 0) ? (-b - d) / (2*a) : (-b + d) / (2*a);
-		double t2 = c / (a*t1);
+		double t1 = (b > 0) ? (-b - d) / (2 * a) : (-b + d) / (2 * a);
+		double t2 = c / (a * t1);
 		
 		if (t1 < 0 && t2 < 0)
 		{

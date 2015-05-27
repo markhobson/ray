@@ -151,7 +151,7 @@ public class Vector
 	
 	public Vector unit()
 	{
-		double mod = Math.sqrt(x*x + y*y + z*z);
+		double mod = Math.sqrt(x * x + y * y + z * z);
 		
 		x /= mod;
 		y /= mod;
@@ -162,17 +162,17 @@ public class Vector
 	
 	public double mod()
 	{
-		return Math.sqrt(x*x + y*y + z*z);
+		return Math.sqrt(x * x + y * y + z * z);
 	}
 	
 	public double dot()
 	{
-		return x*x + y*y + z*z;
+		return x * x + y * y + z * z;
 	}
 	
 	public double dot(Vector v)
 	{
-		return x*v.x + y*v.y + z*v.z;
+		return x * v.x + y * v.y + z * v.z;
 	}
 	
 	// Object methods ---------------------------------------------------------
