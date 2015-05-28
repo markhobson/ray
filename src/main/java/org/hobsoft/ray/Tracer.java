@@ -125,47 +125,10 @@ public class Tracer
 		// n = unit normal at p
 		closest.getNormal(p, n).unit();
 
+		applyLight(u, v, closest);
+		
 		Material material = closest.getMaterial();
 
-		// ambient light
-		pixel.set(scene.getAmbient());
-		
-		// set u = unit(v) for phong
-		int phong = material.getPhong(p);
-		u.set(v).unit();
-		
-		for (Light light : lights)
-		{
-			// l = l0 - p;
-			l.set(light.getOrigin()).subtract(p);
-
-			if (!SHADOWS || !intersects(p, l, closest))
-			{
-				l.unit();
-				
-				// diffuse reflection
-				
-				double d = n.dot(l);
-				
-				if (d > 0)
-				{
-					pixel.mix(light.getColor(), d);
-				}
-				
-				// phong illumination
-				
-				if (phong > 0)
-				{
-					d = l.subtract(2 * l.dot(n), n).dot(u);
-					
-					if (d > 0)
-					{
-						pixel.mix(light.getColor(), pow(d, phong));
-					}
-				}
-			}
-		}
-		
 		pixel.scale(material.getColor(p));
 		
 		double shine = material.getShine(p);
@@ -184,6 +147,58 @@ public class Tracer
 		Pixel newPixel = new Pixel(pixel.getRGB());
 		newPixel.mix(getPixel(u, v, closest).getRGB(), shine);
 		return newPixel;
+	}
+
+	private void applyLight(Vector u, Vector v, Traceable closest)
+	{
+		// ambient light
+		pixel.set(scene.getAmbient());
+		
+		// set u = unit(v) for phong
+		Material material = closest.getMaterial();
+		int phong = material.getPhong(p);
+		u.set(v).unit();
+		
+		for (Light light : lights)
+		{
+			// l = l0 - p;
+			l.set(light.getOrigin()).subtract(p);
+
+			if (!SHADOWS || !intersects(p, l, closest))
+			{
+				l.unit();
+				
+				applyDiffuse(light);
+				applyPhong(light, phong, u);
+			}
+		}
+	}
+
+	private void applyDiffuse(Light light)
+	{
+		// diffuse reflection
+		
+		double d = n.dot(l);
+		
+		if (d > 0)
+		{
+			pixel.mix(light.getColor(), d);
+		}
+	}
+
+	private void applyPhong(Light light, int phong, Vector u)
+	{
+		// phong illumination
+		
+		if (phong > 0)
+		{
+			double d = l.subtract(2 * l.dot(n), n).dot(u);
+			
+			if (d > 0)
+			{
+				pixel.mix(light.getColor(), pow(d, phong));
+			}
+		}
 	}
 
 	private boolean intersects(Vector u, Vector v, Traceable current)
