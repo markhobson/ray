@@ -2,6 +2,6 @@
 
 Real-time ray tracing in Java.
 
-## Run demo
+## Running the demo
 
 	mvn compile exec:java
