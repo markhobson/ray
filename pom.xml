@@ -34,38 +34,42 @@
 	
 	<build>
 	
-		<plugins>
+		<pluginManagement>
+	
+			<plugins>
+			
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+				
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<configuration>
+						<archive>
+							<manifest>
+								<mainClass>org.hobsoft.ray.Ray</mainClass>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+				
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.4.0</version>
+					<configuration>
+						<mainClass>org.hobsoft.ray.Ray</mainClass>
+					</configuration>
+				</plugin>
+				
+			</plugins>
 		
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-			
-			<plugin>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<mainClass>org.hobsoft.ray.Ray</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-			
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.4.0</version>
-				<configuration>
-					<mainClass>org.hobsoft.ray.Ray</mainClass>
-				</configuration>
-			</plugin>
-			
-		</plugins>
-		
+		</pluginManagement>
+
 	</build>
 	
 </project>
