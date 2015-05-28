@@ -74,6 +74,8 @@ public class ScenePanel extends JComponent
 			public void componentResized(ComponentEvent event)
 			{
 				size = null;
+				time = 0;
+				frames = 0;
 				invalidate();
 			}
 		});
