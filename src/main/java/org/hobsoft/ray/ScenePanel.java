@@ -17,11 +17,14 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.image.MemoryImageSource;
 
+import javax.swing.AbstractAction;
 import javax.swing.JComponent;
+import javax.swing.KeyStroke;
 
 /**
  * 
@@ -36,6 +39,31 @@ public class ScenePanel extends JComponent
 	
 	private static final long serialVersionUID = 1L;
 	
+	// ----------------------------------------------------------------------------------------------------------------
+	// types
+	// ----------------------------------------------------------------------------------------------------------------
+
+	@SuppressWarnings("serial")
+	private static class ToggleStatisticsAction extends AbstractAction
+	{
+		public static final String NAME = "toggleStatistics";
+		
+		private final ScenePanel panel;
+
+		public ToggleStatisticsAction(ScenePanel panel)
+		{
+			super(NAME);
+			
+			this.panel = panel;
+		}
+		
+		@Override
+		public void actionPerformed(ActionEvent event)
+		{
+			panel.setStatisticsVisible(!panel.isStatisticsVisible());
+		}
+	}
+
 	// ----------------------------------------------------------------------------------------------------------------
 	// fields
 	// ----------------------------------------------------------------------------------------------------------------
@@ -79,6 +107,9 @@ public class ScenePanel extends JComponent
 				invalidate();
 			}
 		});
+		
+		getInputMap().put(KeyStroke.getKeyStroke("F12"), ToggleStatisticsAction.NAME);
+		getActionMap().put(ToggleStatisticsAction.NAME, new ToggleStatisticsAction(this));
 	}
 	
 	// ----------------------------------------------------------------------------------------------------------------
