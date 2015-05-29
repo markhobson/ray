@@ -29,36 +29,4 @@
 
 	<name>Ray</name>
 	
-	<build>
-	
-		<pluginManagement>
-	
-			<plugins>
-			
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-jar-plugin</artifactId>
-					<configuration>
-						<archive>
-							<manifest>
-								<mainClass>org.hobsoft.ray.demo.Ray</mainClass>
-							</manifest>
-						</archive>
-					</configuration>
-				</plugin>
-				
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>exec-maven-plugin</artifactId>
-					<configuration>
-						<mainClass>org.hobsoft.ray.demo.Ray</mainClass>
-					</configuration>
-				</plugin>
-				
-			</plugins>
-		
-		</pluginManagement>
-
-	</build>
-	
 </project>

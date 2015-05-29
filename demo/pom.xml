@@ -19,19 +19,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
 >
 	<parent>
-		<groupId>org.hobsoft</groupId>
-		<artifactId>hobsoft-parent</artifactId>
-		<version>0.1.3</version>
+		<groupId>org.hobsoft.ray</groupId>
+		<artifactId>ray-parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.hobsoft.ray</groupId>
-	<artifactId>ray-parent</artifactId>
-	<packaging>pom</packaging>
-	<version>0.1.0-SNAPSHOT</version>
-	
-	<name>Ray Parent</name>
-	<description>Simple ray-tracing demo.</description>
+	<artifactId>ray-demo</artifactId>
+
+	<name>Ray Demo</name>
 	
 	<build>
 	
@@ -41,17 +37,22 @@
 			
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
+					<artifactId>maven-jar-plugin</artifactId>
 					<configuration>
-						<source>1.8</source>
-						<target>1.8</target>
+						<archive>
+							<manifest>
+								<mainClass>org.hobsoft.ray.demo.Ray</mainClass>
+							</manifest>
+						</archive>
 					</configuration>
 				</plugin>
 				
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>exec-maven-plugin</artifactId>
-					<version>1.4.0</version>
+					<configuration>
+						<mainClass>org.hobsoft.ray.demo.Ray</mainClass>
+					</configuration>
 				</plugin>
 				
 			</plugins>
@@ -59,24 +60,14 @@
 		</pluginManagement>
 
 	</build>
-
-	<dependencyManagement>
 	
-		<dependencies>
-		
-			<dependency>
-				<groupId>org.hobsoft.ray</groupId>
-				<artifactId>ray</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-		
-		</dependencies>
+	<dependencies>
 	
-	</dependencyManagement>	
-
-	<modules>
-		<module>main</module>
-		<module>demo</module>
-	</modules>
+		<dependency>
+			<groupId>org.hobsoft.ray</groupId>
+			<artifactId>ray</artifactId>
+		</dependency>
+		
+	</dependencies>
 	
 </project>
