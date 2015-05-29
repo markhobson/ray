@@ -11,13 +11,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.hobsoft.ray;
+package org.hobsoft.ray.demo;
 
 import java.awt.Color;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
+import org.hobsoft.ray.Animator;
+import org.hobsoft.ray.Light;
+import org.hobsoft.ray.Scene;
+import org.hobsoft.ray.ScenePanel;
+import org.hobsoft.ray.Vector;
 import org.hobsoft.ray.material.ColorMaterial;
 import org.hobsoft.ray.object.Plane;
 import org.hobsoft.ray.object.Sphere;

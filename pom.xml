@@ -53,7 +53,7 @@
 					<configuration>
 						<archive>
 							<manifest>
-								<mainClass>org.hobsoft.ray.Ray</mainClass>
+								<mainClass>org.hobsoft.ray.demo.Ray</mainClass>
 							</manifest>
 						</archive>
 					</configuration>
@@ -64,7 +64,7 @@
 					<artifactId>exec-maven-plugin</artifactId>
 					<version>1.4.0</version>
 					<configuration>
-						<mainClass>org.hobsoft.ray.Ray</mainClass>
+						<mainClass>org.hobsoft.ray.demo.Ray</mainClass>
 					</configuration>
 				</plugin>
 				
