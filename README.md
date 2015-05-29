@@ -4,6 +4,13 @@ Real-time ray tracing in Java.
 
 ## Running the demo
 
-	mvn compile exec:java
+To run the demo using Maven:
 
-When running press `F12` to display the rendering statistics.
+	mvn compile exec:java
+	
+Alternatively build and run the jar:
+
+	mvn package
+	java -jar target/ray-0.1.0-SNAPSHOT.jar
+
+When running press `F12` to toggle the rendering statistics. The window can also be resized to change the resolution.
