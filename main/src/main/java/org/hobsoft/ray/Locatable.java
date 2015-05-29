@@ -16,7 +16,7 @@ package org.hobsoft.ray;
 /**
  * 
  */
-public interface Positionable
+public interface Locatable
 {
 	// ----------------------------------------------------------------------------------------------------------------
 	// public methods

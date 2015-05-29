@@ -13,15 +13,15 @@
  */
 package org.hobsoft.ray.object;
 
+import org.hobsoft.ray.Locatable;
 import org.hobsoft.ray.Material;
-import org.hobsoft.ray.Positionable;
 import org.hobsoft.ray.Traceable;
 import org.hobsoft.ray.Vector;
 
 /**
  * 
  */
-public abstract class AbstractObject implements Positionable, Traceable
+public abstract class AbstractObject implements Locatable, Traceable
 {
 	// ----------------------------------------------------------------------------------------------------------------
 	// fields
@@ -42,7 +42,7 @@ public abstract class AbstractObject implements Positionable, Traceable
 	}
 	
 	// ----------------------------------------------------------------------------------------------------------------
-	// Positionable methods
+	// Locatable methods
 	// ----------------------------------------------------------------------------------------------------------------
 	
 	@Override

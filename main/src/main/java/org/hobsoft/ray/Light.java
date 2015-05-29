@@ -18,7 +18,7 @@ import java.awt.Color;
 /**
  * 
  */
-public class Light implements Positionable
+public class Light implements Locatable
 {
 	// ----------------------------------------------------------------------------------------------------------------
 	// fields
@@ -39,7 +39,7 @@ public class Light implements Positionable
 	}
 	
 	// ----------------------------------------------------------------------------------------------------------------
-	// Positionable methods
+	// Locatable methods
 	// ----------------------------------------------------------------------------------------------------------------
 	
 	@Override

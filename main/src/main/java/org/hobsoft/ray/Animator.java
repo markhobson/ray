@@ -32,7 +32,7 @@ public class Animator
 		// fields
 		// ------------------------------------------------------------------------------------------------------------
 		
-		private final Positionable object;
+		private final Locatable object;
 		
 		private final Vector p0;
 		
@@ -48,7 +48,7 @@ public class Animator
 		// constructors
 		// ------------------------------------------------------------------------------------------------------------
 		
-		public CircleTask(Positionable object, Vector p0, Vector r, Vector da)
+		public CircleTask(Locatable object, Vector p0, Vector r, Vector da)
 		{
 			this.object = object;
 			this.p0 = p0;
@@ -97,27 +97,27 @@ public class Animator
 	// public methods
 	// ----------------------------------------------------------------------------------------------------------------
 	
-	public void circleX(Positionable object, double r, double da, int period)
+	public void circleX(Locatable object, double r, double da, int period)
 	{
 		circle(object, new Vector(0, r, r), new Vector(da, 0, 0), period);
 	}
 	
-	public void circleY(Positionable object, double r, double da, int period)
+	public void circleY(Locatable object, double r, double da, int period)
 	{
 		circle(object, new Vector(r, 0, r), new Vector(0, da, 0), period);
 	}
 	
-	public void circleZ(Positionable object, double r, double da, int period)
+	public void circleZ(Locatable object, double r, double da, int period)
 	{
 		circle(object, new Vector(r, r, 0), new Vector(0, 0, da), period);
 	}
 	
-	public void circle(Positionable object, Vector r, Vector da, int period)
+	public void circle(Locatable object, Vector r, Vector da, int period)
 	{
 		circle(object, new Vector(object.getOrigin()), r, da, period);
 	}
 	
-	public void circle(Positionable object, Vector p0, Vector r, Vector da, int period)
+	public void circle(Locatable object, Vector p0, Vector r, Vector da, int period)
 	{
 		executor.scheduleAtFixedRate(new CircleTask(object, p0, r, da), 0, period, TimeUnit.MILLISECONDS);
 	}
