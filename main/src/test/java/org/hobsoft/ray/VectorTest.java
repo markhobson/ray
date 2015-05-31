@@ -155,6 +155,14 @@ public class VectorTest
 		assertThat(vector.equals(object), is(false));
 	}
 	
+	@Test
+	public void toStringReturnsIntegralComponents()
+	{
+		Vector vector = new Vector(1, 2, 3);
+		
+		assertThat(vector.toString(), is("(1, 2, 3)"));
+	}
+	
 	// ----------------------------------------------------------------------------------------------------------------
 	// private methods
 	// ----------------------------------------------------------------------------------------------------------------

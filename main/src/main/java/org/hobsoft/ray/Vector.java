@@ -229,6 +229,6 @@ public class Vector
 	@Override
 	public String toString()
 	{
-		return "(" + x + "," + y + "," + z + ")";
+		return String.format("(%.0f, %.0f, %.0f)", x, y, z);
 	}
 }
