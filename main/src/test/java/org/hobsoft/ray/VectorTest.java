@@ -16,6 +16,7 @@ package org.hobsoft.ray;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -49,6 +50,46 @@ public class VectorTest
 		Vector actual = new Vector(1, 2, 3);
 		
 		assertVector(1d, 2d, 3d, actual);
+	}
+	
+	@Test
+	public void setWithVectorSetsComponents()
+	{
+		Vector vector = new Vector();
+
+		vector.set(new Vector(1, 2, 3));
+
+		assertThat(vector, is(new Vector(1, 2, 3)));
+	}
+	
+	@Test
+	public void setWithVectorReturnsSelf()
+	{
+		Vector vector = new Vector();
+		
+		Vector actual = vector.set(new Vector());
+		
+		assertThat(actual, sameInstance(vector));
+	}
+	
+	@Test
+	public void setWithComponentsSetsComponents()
+	{
+		Vector vector = new Vector();
+		
+		vector.set(1, 2, 3);
+		
+		assertThat(vector, is(new Vector(1, 2, 3)));
+	}
+
+	@Test
+	public void setWithComponentsReturnsSelf()
+	{
+		Vector vector = new Vector();
+		
+		Vector actual = vector.set(0, 0, 0);
+		
+		assertThat(actual, sameInstance(vector));
 	}
 	
 	@Test
