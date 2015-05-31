@@ -16,7 +16,9 @@ package org.hobsoft.ray;
 import java.util.Objects;
 
 /**
- * 
+ * A mathematical vector in three dimensional space.
+ * <p>
+ * All mutating methods in this class modify the underlying instance for efficiency reasons.
  */
 public class Vector
 {
