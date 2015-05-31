@@ -13,6 +13,8 @@
  */
 package org.hobsoft.ray;
 
+import static org.hobsoft.ray.FastMath.pow;
+
 /**
  * 
  */
@@ -225,17 +227,5 @@ public class Tracer
 		}
 		
 		return false;
-	}
-	
-	private static double pow(double a, int b)
-	{
-		double c = 1;
-		
-		while (b-- > 0)
-		{
-			c *= a;
-		}
-		
-		return c;
 	}
 }
