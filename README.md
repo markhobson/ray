@@ -19,3 +19,4 @@ When running press `F12` to toggle the rendering statistics. The window can also
 ## Further reading
 
 * [Practical Ray Tracing](http://www.itu.dk/courses/IM/Projects/Raytracer/RayNotes.pdf)
+* [Reflections and Refractions in Ray Tracing](http://www.flipcode.com/archives/reflection_transmission.pdf)
