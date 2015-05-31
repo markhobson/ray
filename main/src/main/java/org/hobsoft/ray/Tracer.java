@@ -201,6 +201,19 @@ public class Tracer
 		}
 	}
 
+	/**
+	 * Returns whether the specified ray intersects any scene object, optionally ignoring a specified one.
+	 * <p>
+	 * The ray is specified by the line <b>p</b> = <b>u</b> + <b>v</b><i>t</i>.
+	 * 
+	 * @param u
+	 *            the vector <b>u</b> of the ray
+	 * @param v
+	 *            the vector <b>v</b> of the ray
+	 * @param current
+	 *            the scene object to ignore, or {@code null} to consider all scene objects
+	 * @return {@code true} if the specified ray intersects a scene object, {@code false} otherwise
+	 */
 	private boolean intersects(Vector u, Vector v, Traceable current)
 	{
 		for (Traceable object : objects)
