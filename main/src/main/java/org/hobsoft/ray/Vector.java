@@ -56,6 +56,21 @@ public class Vector
 	// public methods
 	// ----------------------------------------------------------------------------------------------------------------
 	
+	public double getX()
+	{
+		return x;
+	}
+	
+	public double getY()
+	{
+		return y;
+	}
+	
+	public double getZ()
+	{
+		return z;
+	}
+	
 	public Vector set(Vector v)
 	{
 		x = v.x;
