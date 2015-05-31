@@ -51,6 +51,69 @@ public class VectorTest
 		assertVector(1d, 2d, 3d, actual);
 	}
 	
+	@Test
+	public void hashCodeWhenEqualReturnsEqual()
+	{
+		Vector vector1 = new Vector(1, 2, 3);
+		Vector vector2 = new Vector(1, 2, 3);
+
+		assertThat(vector1.hashCode(), is(vector2.hashCode()));
+	}
+	
+	@Test
+	public void equalsWithEqualReturnsTrue()
+	{
+		Vector vector1 = new Vector(1, 2, 3);
+		Vector vector2 = new Vector(1, 2, 3);
+		
+		assertThat(vector1.equals(vector2), is(true));
+	}
+	
+	@Test
+	public void equalsWithUnequalXReturnsFalse()
+	{
+		Vector vector1 = new Vector(1, 2, 3);
+		Vector vector2 = new Vector(0, 2, 3);
+		
+		assertThat(vector1.equals(vector2), is(false));
+	}
+	
+	@Test
+	public void equalsWithUnequalYReturnsFalse()
+	{
+		Vector vector1 = new Vector(1, 2, 3);
+		Vector vector2 = new Vector(1, 0, 3);
+		
+		assertThat(vector1.equals(vector2), is(false));
+	}
+	
+	@Test
+	public void equalsWithUnequalZReturnsFalse()
+	{
+		Vector vector1 = new Vector(1, 2, 3);
+		Vector vector2 = new Vector(1, 2, 0);
+		
+		assertThat(vector1.equals(vector2), is(false));
+	}
+	
+	@Test
+	public void equalsWithOtherClassReturnsFalse()
+	{
+		Vector vector = new Vector();
+		Object object = new Object();
+		
+		assertThat(vector.equals(object), is(false));
+	}
+	
+	@Test
+	public void equalsWithNullReturnsFalse()
+	{
+		Vector vector = new Vector();
+		Object object = null;
+		
+		assertThat(vector.equals(object), is(false));
+	}
+	
 	// ----------------------------------------------------------------------------------------------------------------
 	// private methods
 	// ----------------------------------------------------------------------------------------------------------------

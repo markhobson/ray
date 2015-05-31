@@ -13,6 +13,8 @@
  */
 package org.hobsoft.ray;
 
+import java.util.Objects;
+
 /**
  * 
  */
@@ -204,6 +206,25 @@ public class Vector
 	// ----------------------------------------------------------------------------------------------------------------
 	// Object methods
 	// ----------------------------------------------------------------------------------------------------------------
+
+	@Override
+	public int hashCode()
+	{
+		return Objects.hash(x, y, z);
+	}
+	
+	@Override
+	public boolean equals(Object object)
+	{
+		if (!(object instanceof Vector))
+		{
+			return false;
+		}
+		
+		Vector v = (Vector) object;
+		
+		return x == v.x && y == v.y && z == v.z;
+	}
 	
 	@Override
 	public String toString()
