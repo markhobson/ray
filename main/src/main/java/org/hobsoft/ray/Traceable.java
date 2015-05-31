@@ -14,7 +14,7 @@
 package org.hobsoft.ray;
 
 /**
- * 
+ * Defines a scene object that can be ray traced.
  */
 public interface Traceable
 {
@@ -22,6 +22,18 @@ public interface Traceable
 	// public methods
 	// ----------------------------------------------------------------------------------------------------------------
 
+	/**
+	 * Calculates the intersection of the specified ray with this object.
+	 * <p>
+	 * The ray is specified by the line <b>p</b> = <b>u</b> + <b>v</b><i>t</i>.
+	 * 
+	 * @param u
+	 *            the vector <b>u</b> of the ray
+	 * @param v
+	 *            the vector <b>v</b> of the ray
+	 * @return the value of scalar <i>t</i> where 0 <= <i>t</i> <= 1 if the specified ray intersects with this object,
+	 *         or {@code Double.NaN} if the specified ray does not intersect with this object
+	 */
 	double getIntersection(Vector u, Vector v);
 	
 	Vector getNormal(Vector p, Vector n);
