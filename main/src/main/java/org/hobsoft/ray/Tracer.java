@@ -210,15 +210,15 @@ public class Tracer
 	 *            the vector <b>u</b> of the ray
 	 * @param v
 	 *            the vector <b>v</b> of the ray
-	 * @param current
+	 * @param ignore
 	 *            the scene object to ignore, or {@code null} to consider all scene objects
 	 * @return {@code true} if the specified ray intersects a scene object, {@code false} otherwise
 	 */
-	private boolean intersects(Vector u, Vector v, Traceable current)
+	private boolean intersects(Vector u, Vector v, Traceable ignore)
 	{
 		for (Traceable object : objects)
 		{
-			if (object != current && !Double.isNaN(object.getIntersection(u, v)))
+			if (object != ignore && !Double.isNaN(object.getIntersection(u, v)))
 			{
 				return true;
 			}
