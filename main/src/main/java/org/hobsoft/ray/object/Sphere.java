@@ -53,29 +53,36 @@ public class Sphere extends AbstractObject
 	public double getIntersection(Vector u, Vector v)
 	{
 		/*
-		 * intersection of ray:
-		 *    p = u + vt
-		 * with sphere:
-		 *    (p - p0)^2 = r^2
-		 * solution t:
-		 *    (v.v)t^2 + 2(q.v)t + (q.q - r^2) = 0, where q = u - p0
-		 * quadratic with:
-		 *    a = v.v
-		 *    b = 2v.q
-		 *    c = q.q - r^2
+		 * The intersection of the ray:
+		 * 
+		 *     p = u + vt
+		 *     
+		 * With this sphere:
+		 * 
+		 *     (p - p0)^2 = r^2
+		 *     
+		 * Has the solution t:
+		 * 
+		 *     (v.v)t^2 + 2(q.v)t + (q.q - r^2) = 0, where q = u - p0
+		 * 
+		 * Which is a quadratic equation with coefficients:
+		 * 
+		 *     a = v.v
+		 *     b = 2v.q
+		 *     c = q.q - r^2
 		 */
 
 		// q = u - p0
 		
 		q.set(u).subtract(getOrigin());
 
-		// calculate quadratic coefficients
+		// Calculate quadratic coefficients
 		
 		double a = v.dot();
 		double b = 2 * v.dot(q);
 		double c = q.dot() - rsq;
 		
-		// complex solution => no intersection
+		// Complex solution => No intersection
 		
 		double d = b * b - 4 * a * c;
 		
@@ -84,7 +91,7 @@ public class Sphere extends AbstractObject
 			return Double.NaN;
 		}
 		
-		// solve quadratic for t
+		// Solve quadratic for t
 		
 		d = Math.sqrt(d);
 		double t1 = (b > 0) ? (-b - d) / (2 * a) : (-b + d) / (2 * a);

@@ -50,15 +50,20 @@ public class Plane extends AbstractObject
 	public double getIntersection(Vector u, Vector v)
 	{
 		/*
-		 * intersection of ray:
-		 *    p = u + vt
-		 * with plane:
-		 *    (p0 - p).n = 0
-		 * solution t:
-		 *    t = (p0 - u).n / v.n
+		 * The intersection of the ray:
+		 * 
+		 *     p = u + vt
+		 *     
+		 * With this plane:
+		 * 
+		 *     (p0 - p).n = 0
+		 *     
+		 * Has the solution t:
+		 * 
+		 *     t = (p0 - u).n / v.n
 		 */
 
-		// d = v.n = 0 => no intersection
+		// v.n = 0 => No intersection
 		
 		double d = v.dot(n);
 		
@@ -67,11 +72,11 @@ public class Plane extends AbstractObject
 			return Double.NaN;
 		}
 		
-		// t = (p0 - u).n / d
+		// t = (p0 - u).n / v.n
 		
 		double t = q.set(getOrigin()).subtract(u).dot(n) / d;
 		
-		// 0 <= t <= 1 => intersection
+		// 0 <= t <= 1 => Intersection
 		
 		if (t < 0)
 		{
